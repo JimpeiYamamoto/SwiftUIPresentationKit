@@ -3,7 +3,7 @@ import Combine
 
 // MARK: - ToastManager
 @Observable
-final class ToastManager {
+final class ToastPresentationManager {
     var message: String = ""
     var isVisible: Bool = false
 
@@ -92,7 +92,7 @@ struct ToastView: View {
 
 // MARK: - View Modifier
 struct ToastModifier: ViewModifier {
-    var manager: ToastManager
+    var manager: ToastPresentationManager
 
     func body(content: Content) -> some View {
         ZStack {
@@ -108,15 +108,14 @@ struct ToastModifier: ViewModifier {
 }
 
 extension View {
-    /// 任意のViewにトーストを付与
-    func toast(manager: ToastManager) -> some View {
+    func toast(manager: ToastPresentationManager) -> some View {
         self.modifier(ToastModifier(manager: manager))
     }
 }
 
 // MARK: - Example
 struct ToastExampleView: View {
-    @State private var toastManager = ToastManager()
+    @State private var toastManager = ToastPresentationManager()
 
     var body: some View {
         VStack(spacing: 20) {

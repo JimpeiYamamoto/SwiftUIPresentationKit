@@ -1,7 +1,7 @@
 import SwiftUI
 
 @Observable
-class SheetState {
+class SheetPresentationManager {
     var presentingSheet: SheetType?
 
     init(presentingSheet: SheetType?) {

@@ -2,15 +2,15 @@ import SwiftUI
 
 struct DemoView: View {
     @Environment(\.sheetState)
-    private var _sheetState: SheetState
+    private var _sheetState: SheetPresentationManager
     @Environment(\.navigationState)
-    private var _navigationState: NavigationState
+    private var _navigationState: NavigationRouter
     @Environment(\.alertManagerOnSheet)
     private var alertManagerOnSheet: AlertManager
     @Environment(\.alertManagerOnNavigation)
     private var alertManagerOnNavigation: AlertManager
     @Environment(\.toastManager)
-    private var toastManager: ToastManager
+    private var toastManager: ToastPresentationManager
 
     var body: some View {
         @Bindable var sheetState = _sheetState
@@ -78,15 +78,15 @@ struct DemoView: View {
 
 struct Sheet1: View {
     @Environment(\.sheetState)
-    var sheetState: SheetState
+    var sheetState: SheetPresentationManager
     @Environment(\.navigationState)
-    var navigationState: NavigationState
+    var navigationState: NavigationRouter
     @Environment(\.dismiss)
     var dismiss: DismissAction
     @Environment(\.alertManagerOnSheet)
     var alertManager: AlertManager
     @Environment(\.toastManager)
-    var toastManager: ToastManager
+    var toastManager: ToastPresentationManager
 
     let message: String
 
@@ -135,15 +135,15 @@ struct Sheet1: View {
 
 struct Sheet2: View {
     @Environment(\.sheetState)
-    var sheetState: SheetState
+    var sheetState: SheetPresentationManager
     @Environment(\.dismiss)
     var dismiss: DismissAction
     @Environment(\.navigationState)
-    var navigationState: NavigationState
+    var navigationState: NavigationRouter
     @Environment(\.alertManagerOnSheet)
     var alertManager: AlertManager
     @Environment(\.toastManager)
-    var toastManager: ToastManager
+    var toastManager: ToastPresentationManager
     let message: String
 
     var body: some View {
@@ -188,15 +188,15 @@ struct Sheet2: View {
 
 struct Sheet3: View {
     @Environment(\.sheetState)
-    var sheetState: SheetState
+    var sheetState: SheetPresentationManager
     @Environment(\.dismiss)
     var dismiss: DismissAction
     @Environment(\.navigationState)
-    var navigationState: NavigationState
+    var navigationState: NavigationRouter
     @Environment(\.alertManagerOnSheet)
     var alertManager: AlertManager
     @Environment(\.toastManager)
-    var toastManager: ToastManager
+    var toastManager: ToastPresentationManager
     let message: String
 
     var body: some View {
@@ -241,13 +241,13 @@ struct Sheet3: View {
 
 struct NavigationView1: View {
     @Environment(\.sheetState)
-    var sheetState: SheetState
+    var sheetState: SheetPresentationManager
     @Environment(\.navigationState)
-    var navigationState: NavigationState
+    var navigationState: NavigationRouter
     @Environment(\.alertManagerOnNavigation)
     var alertManager: AlertManager
     @Environment(\.toastManager)
-    var toastManager: ToastManager
+    var toastManager: ToastPresentationManager
 
     let message: String
     var body: some View {
@@ -315,13 +315,13 @@ struct NavigationView1: View {
 
 struct NavigationView2: View {
     @Environment(\.sheetState)
-    var sheetState: SheetState
+    var sheetState: SheetPresentationManager
     @Environment(\.navigationState)
-    var navigationState: NavigationState
+    var navigationState: NavigationRouter
     @Environment(\.alertManagerOnNavigation)
     var alertManager: AlertManager
     @Environment(\.toastManager)
-    var toastManager: ToastManager
+    var toastManager: ToastPresentationManager
 
     let message: String
     var body: some View {
@@ -387,13 +387,13 @@ struct NavigationView2: View {
 
 struct NavigationView3: View {
     @Environment(\.sheetState)
-    var sheetState: SheetState
+    var sheetState: SheetPresentationManager
     @Environment(\.navigationState)
-    var navigationState: NavigationState
+    var navigationState: NavigationRouter
     @Environment(\.alertManagerOnNavigation)
     var alertManager: AlertManager
     @Environment(\.toastManager)
-    var toastManager: ToastManager
+    var toastManager: ToastPresentationManager
 
     let message: String
     var body: some View {
@@ -454,13 +454,13 @@ struct NavigationView3: View {
 
 #Preview {
     @Previewable @State
-    var toastManager = ToastManager()
+    var toastManager = ToastPresentationManager()
     @Previewable @State
     var alertManagerOnNavigation = AlertManager(isPresented: false, alertType: nil)
     @Previewable @State
-    var sheetState = SheetState(presentingSheet: nil)
+    var sheetState = SheetPresentationManager(presentingSheet: nil)
     @Previewable @State
-    var navigationState = NavigationState(views: [])
+    var navigationState = NavigationRouter(views: [])
     @Previewable @State
     var alertManagerOnSheet = AlertManager(isPresented: false, alertType: nil)
 

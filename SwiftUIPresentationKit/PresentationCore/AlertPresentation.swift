@@ -80,7 +80,6 @@ struct AlertOnNavigationModifier: ViewModifier {
 
 // MARK: - View extension
 extension View {
-    /// Navigation階層に属するViewで、alertManagerOnNavigationを自動的に監視するModifier
     func alertOnNavigation() -> some View {
         modifier(AlertOnNavigationModifier())
     }

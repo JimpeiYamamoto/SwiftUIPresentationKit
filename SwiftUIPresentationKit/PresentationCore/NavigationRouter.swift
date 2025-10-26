@@ -1,7 +1,7 @@
 import SwiftUI
 
 @Observable
-class NavigationState {
+class NavigationRouter {
     var views: [NavigationType]
 
     init(views: [NavigationType]) {
