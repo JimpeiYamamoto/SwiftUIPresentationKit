@@ -22,15 +22,9 @@ struct SwiftUIPresentationKitApp: App {
                     }
             }
             .sheet(item: $sheetState.presentingSheet) { sheetType in
-                Group {
-                    switch sheetType {
-                    case let .sheet1(_, message): Sheet1(message: message)
-                    case let .sheet2(_, message): Sheet2(message: message)
-                    case let .sheet3(_, message): Sheet3(message: message)
-                    }
-                }
-                .alertOnSheet()
-                .toast(manager: toastManager)
+                sheetType.makeView()
+                    .alertOnSheet()
+                    .toast(manager: toastManager)
             }
             .environment(\.toastManager, toastManager)
             .environment(\.alertManagerOnNavigation, alertManagerOnNavigation)

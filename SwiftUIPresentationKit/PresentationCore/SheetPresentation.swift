@@ -25,5 +25,13 @@ enum SheetType: Identifiable {
         case let .sheet3(id, _): return "sheet3_\(id)"
         }
     }
-}
 
+    @ViewBuilder
+    func makeView() -> some View {
+        switch self {
+        case let .sheet1(_, message): Sheet1(message: message)
+        case let .sheet2(_, message): Sheet2(message: message)
+        case let .sheet3(_, message): Sheet3(message: message)
+        }
+    }
+}
