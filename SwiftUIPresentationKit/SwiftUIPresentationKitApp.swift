@@ -16,15 +16,9 @@ struct SwiftUIPresentationKitApp: App {
             NavigationStack(path: $navigationState.views) {
                 RootView()
                     .navigationDestination(for: NavigationType.self) { navigationType in
-                        Group {
-                            switch navigationType {
-                            case let .view1(message): NavigationView1(message: message)
-                            case let .view2(message): NavigationView2(message: message)
-                            case let .view3(message): NavigationView3(message: message)
-                            }
-                        }
-                        .alertOnNavigation()
-                        .toast(manager: toastManager)
+                        navigationType.makeView()
+                            .alertOnNavigation()
+                            .toast(manager: toastManager)
                     }
             }
             .sheet(item: $sheetState.presentingSheet) { sheetType in
