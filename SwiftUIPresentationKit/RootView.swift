@@ -1,41 +1,41 @@
 import SwiftUI
 
 struct RootView: View {
-    @Environment(\.sheetState)
-    private var sheetState: SheetPresentationManager
-    @Environment(\.navigationState)
-    private var navigationState: NavigationRouter
+    @Environment(\.sheetManager)
+    private var sheetManager: SheetPresentationManager
+    @Environment(\.navigationRouter)
+    private var navigationRouter: NavigationRouter
 
     var body: some View {
         VStack {
             Text("TopView")
             Button(action: {
-                sheetState.openSheet(.sheet1(id: UUID().uuidString, message: "onTop"))
+                sheetManager.openSheet(.sheet1(id: UUID().uuidString, message: "onTop"))
             }, label: {
                 Text("open Sheet1")
             })
             Button(action: {
-                sheetState.openSheet(.sheet2(id: UUID().uuidString, message: "onTop"))
+                sheetManager.openSheet(.sheet2(id: UUID().uuidString, message: "onTop"))
             }, label: {
                 Text("open Sheet2")
             })
             Button(action: {
-                sheetState.openSheet(.sheet3(id: UUID().uuidString, message: "onTop"))
+                sheetManager.openSheet(.sheet3(id: UUID().uuidString, message: "onTop"))
             }, label: {
                 Text("open Sheet3")
             })
             Button(action: {
-                navigationState.navigate(to: .view1(message: "from Top"))
+                navigationRouter.navigate(to: .view1(message: "from Top"))
             }, label: {
                 Text("navigate1")
             })
             Button(action: {
-                navigationState.navigate(to: .view2(message: "from Top"))
+                navigationRouter.navigate(to: .view2(message: "from Top"))
             }, label: {
                 Text("navigate2")
             })
             Button(action: {
-                navigationState.navigate(to: .view3(message: "from Top"))
+                navigationRouter.navigate(to: .view3(message: "from Top"))
             }, label: {
                 Text("navigate3")
             })
@@ -46,10 +46,10 @@ struct RootView: View {
 // MARK: Example Views
 
 struct Sheet1: View {
-    @Environment(\.sheetState)
-    var sheetState: SheetPresentationManager
-    @Environment(\.navigationState)
-    var navigationState: NavigationRouter
+    @Environment(\.sheetManager)
+    var sheetManager: SheetPresentationManager
+    @Environment(\.navigationRouter)
+    var navigationRouter: NavigationRouter
     @Environment(\.dismiss)
     var dismiss: DismissAction
     @Environment(\.alertManagerOnSheet)
@@ -65,19 +65,19 @@ struct Sheet1: View {
             Text("message: \(message)")
 
             Button(action: {
-                sheetState.openSheet(.sheet1(id: UUID().uuidString, message: "onSheet1"))
+                sheetManager.openSheet(.sheet1(id: UUID().uuidString, message: "onSheet1"))
             }, label: {
                 Text("open Sheet1")
             })
 
             Button(action: {
-                sheetState.openSheet(.sheet2(id: UUID().uuidString, message: "onSheet1"))
+                sheetManager.openSheet(.sheet2(id: UUID().uuidString, message: "onSheet1"))
             }, label: {
                 Text("open Sheet2")
             })
 
             Button(action: {
-                sheetState.openSheet(.sheet3(id: UUID().uuidString, message: "onSheet1"))
+                sheetManager.openSheet(.sheet3(id: UUID().uuidString, message: "onSheet1"))
             }, label: {
                 Text("open Sheet3")
             })
@@ -103,12 +103,12 @@ struct Sheet1: View {
 }
 
 struct Sheet2: View {
-    @Environment(\.sheetState)
-    var sheetState: SheetPresentationManager
+    @Environment(\.sheetManager)
+    var sheetManager: SheetPresentationManager
     @Environment(\.dismiss)
     var dismiss: DismissAction
-    @Environment(\.navigationState)
-    var navigationState: NavigationRouter
+    @Environment(\.navigationRouter)
+    var navigationRouter: NavigationRouter
     @Environment(\.alertManagerOnSheet)
     var alertManager: AlertManager
     @Environment(\.toastManager)
@@ -120,17 +120,17 @@ struct Sheet2: View {
             Text("Sheet1")
             Text("message: \(message)")
             Button(action: {
-                sheetState.openSheet(.sheet1(id: UUID().uuidString, message: "onSheet2"))
+                sheetManager.openSheet(.sheet1(id: UUID().uuidString, message: "onSheet2"))
             }, label: {
                 Text("open Sheet1")
             })
             Button(action: {
-                sheetState.openSheet(.sheet2(id: UUID().uuidString, message: "onSheet2"))
+                sheetManager.openSheet(.sheet2(id: UUID().uuidString, message: "onSheet2"))
             }, label: {
                 Text("open Sheet2")
             })
             Button(action: {
-                sheetState.openSheet(.sheet3(id: UUID().uuidString, message: "onSheet2"))
+                sheetManager.openSheet(.sheet3(id: UUID().uuidString, message: "onSheet2"))
             }, label: {
                 Text("open Sheet3")
             })
@@ -156,12 +156,12 @@ struct Sheet2: View {
 }
 
 struct Sheet3: View {
-    @Environment(\.sheetState)
-    var sheetState: SheetPresentationManager
+    @Environment(\.sheetManager)
+    var sheetManager: SheetPresentationManager
     @Environment(\.dismiss)
     var dismiss: DismissAction
-    @Environment(\.navigationState)
-    var navigationState: NavigationRouter
+    @Environment(\.navigationRouter)
+    var navigationRouter: NavigationRouter
     @Environment(\.alertManagerOnSheet)
     var alertManager: AlertManager
     @Environment(\.toastManager)
@@ -173,17 +173,17 @@ struct Sheet3: View {
             Text("Sheet1")
             Text("message: \(message)")
             Button(action: {
-                sheetState.openSheet(.sheet1(id: UUID().uuidString, message: "onSheet3"))
+                sheetManager.openSheet(.sheet1(id: UUID().uuidString, message: "onSheet3"))
             }, label: {
                 Text("open Sheet1")
             })
             Button(action: {
-                sheetState.openSheet(.sheet2(id: UUID().uuidString, message: "onSheet3"))
+                sheetManager.openSheet(.sheet2(id: UUID().uuidString, message: "onSheet3"))
             }, label: {
                 Text("open Sheet2")
             })
             Button(action: {
-                sheetState.openSheet(.sheet3(id: UUID().uuidString, message: "onSheet3"))
+                sheetManager.openSheet(.sheet3(id: UUID().uuidString, message: "onSheet3"))
             }, label: {
                 Text("open Sheet3")
             })
@@ -209,10 +209,10 @@ struct Sheet3: View {
 }
 
 struct NavigationView1: View {
-    @Environment(\.sheetState)
-    var sheetState: SheetPresentationManager
-    @Environment(\.navigationState)
-    var navigationState: NavigationRouter
+    @Environment(\.sheetManager)
+    var sheetManager: SheetPresentationManager
+    @Environment(\.navigationRouter)
+    var navigationRouter: NavigationRouter
     @Environment(\.alertManagerOnNavigation)
     var alertManager: AlertManager
     @Environment(\.toastManager)
@@ -225,37 +225,37 @@ struct NavigationView1: View {
             Text("message: \(message)")
 
             Button(action: {
-                sheetState.openSheet(.sheet1(id: UUID().uuidString, message: "onNavigation1"))
+                sheetManager.openSheet(.sheet1(id: UUID().uuidString, message: "onNavigation1"))
             }, label: {
                 Text("open Sheet1")
             })
 
             Button(action: {
-                sheetState.openSheet(.sheet2(id: UUID().uuidString, message: "onNavigation1"))
+                sheetManager.openSheet(.sheet2(id: UUID().uuidString, message: "onNavigation1"))
             }, label: {
                 Text("open Sheet2")
             })
 
             Button(action: {
-                sheetState.openSheet(.sheet3(id: UUID().uuidString, message: "onNavigation1"))
+                sheetManager.openSheet(.sheet3(id: UUID().uuidString, message: "onNavigation1"))
             }, label: {
                 Text("open Sheet3")
             })
 
             Button(action: {
-                navigationState.navigate(to: .view1(message: "from navigation1"))
+                navigationRouter.navigate(to: .view1(message: "from navigation1"))
             }, label: {
                 Text("navigate1")
             })
 
             Button(action: {
-                navigationState.navigate(to: .view2(message: "from navigation1"))
+                navigationRouter.navigate(to: .view2(message: "from navigation1"))
             }, label: {
                 Text("navigate2")
             })
 
             Button(action: {
-                navigationState.navigate(to: .view3(message: "from navigation1"))
+                navigationRouter.navigate(to: .view3(message: "from navigation1"))
             }, label: {
                 Text("navigate3")
             })
@@ -272,7 +272,7 @@ struct NavigationView1: View {
                 Text("show toast")
             })
             Button(action: {
-                navigationState.back()
+                navigationRouter.back()
             }, label: {
                 Text("back")
             })
@@ -283,10 +283,10 @@ struct NavigationView1: View {
 }
 
 struct NavigationView2: View {
-    @Environment(\.sheetState)
-    var sheetState: SheetPresentationManager
-    @Environment(\.navigationState)
-    var navigationState: NavigationRouter
+    @Environment(\.sheetManager)
+    var sheetManager: SheetPresentationManager
+    @Environment(\.navigationRouter)
+    var navigationRouter: NavigationRouter
     @Environment(\.alertManagerOnNavigation)
     var alertManager: AlertManager
     @Environment(\.toastManager)
@@ -299,37 +299,37 @@ struct NavigationView2: View {
             Text("message: \(message)")
 
             Button(action: {
-                sheetState.openSheet(.sheet1(id: UUID().uuidString, message: "onNavigation2"))
+                sheetManager.openSheet(.sheet1(id: UUID().uuidString, message: "onNavigation2"))
             }, label: {
                 Text("open Sheet1")
             })
 
             Button(action: {
-                sheetState.openSheet(.sheet2(id: UUID().uuidString, message: "onNavigation2"))
+                sheetManager.openSheet(.sheet2(id: UUID().uuidString, message: "onNavigation2"))
             }, label: {
                 Text("open Sheet2")
             })
 
             Button(action: {
-                sheetState.openSheet(.sheet3(id: UUID().uuidString, message: "onNavigation2"))
+                sheetManager.openSheet(.sheet3(id: UUID().uuidString, message: "onNavigation2"))
             }, label: {
                 Text("open Sheet3")
             })
 
             Button(action: {
-                navigationState.navigate(to: .view1(message: "from navigation2"))
+                navigationRouter.navigate(to: .view1(message: "from navigation2"))
             }, label: {
                 Text("navigate1")
             })
 
             Button(action: {
-                navigationState.navigate(to: .view2(message: "from navigation2"))
+                navigationRouter.navigate(to: .view2(message: "from navigation2"))
             }, label: {
                 Text("navigate2")
             })
 
             Button(action: {
-                navigationState.navigate(to: .view3(message: "from navigation2"))
+                navigationRouter.navigate(to: .view3(message: "from navigation2"))
             }, label: {
                 Text("navigate3")
             })
@@ -344,7 +344,7 @@ struct NavigationView2: View {
                 Text("showToast")
             })
             Button(action: {
-                navigationState.back()
+                navigationRouter.back()
             }, label: {
                 Text("back")
             })
@@ -355,10 +355,10 @@ struct NavigationView2: View {
 }
 
 struct NavigationView3: View {
-    @Environment(\.sheetState)
-    var sheetState: SheetPresentationManager
-    @Environment(\.navigationState)
-    var navigationState: NavigationRouter
+    @Environment(\.sheetManager)
+    var sheetManager: SheetPresentationManager
+    @Environment(\.navigationRouter)
+    var navigationRouter: NavigationRouter
     @Environment(\.alertManagerOnNavigation)
     var alertManager: AlertManager
     @Environment(\.toastManager)
@@ -371,32 +371,32 @@ struct NavigationView3: View {
             Text("message: \(message)")
 
             Button(action: {
-                sheetState.openSheet(.sheet1(id: UUID().uuidString, message: "onNavigation3"))
+                sheetManager.openSheet(.sheet1(id: UUID().uuidString, message: "onNavigation3"))
             }, label: {
                 Text("open Sheet1")
             })
             Button(action: {
-                sheetState.openSheet(.sheet2(id: UUID().uuidString, message: "onNavigation3"))
+                sheetManager.openSheet(.sheet2(id: UUID().uuidString, message: "onNavigation3"))
             }, label: {
                 Text("open Sheet2")
             })
             Button(action: {
-                sheetState.openSheet(.sheet3(id: UUID().uuidString, message: "onNavigation3"))
+                sheetManager.openSheet(.sheet3(id: UUID().uuidString, message: "onNavigation3"))
             }, label: {
                 Text("open Sheet3")
             })
             Button(action: {
-                navigationState.navigate(to: .view1(message: "from navigation3"))
+                navigationRouter.navigate(to: .view1(message: "from navigation3"))
             }, label: {
                 Text("navigate1")
             })
             Button(action: {
-                navigationState.navigate(to: .view2(message: "from navigation3"))
+                navigationRouter.navigate(to: .view2(message: "from navigation3"))
             }, label: {
                 Text("navigate2")
             })
             Button(action: {
-                navigationState.navigate(to: .view3(message: "from navigation3"))
+                navigationRouter.navigate(to: .view3(message: "from navigation3"))
             }, label: {
                 Text("navigate3")
             })
@@ -411,7 +411,7 @@ struct NavigationView3: View {
                 Text("showToast")
             })
             Button(action: {
-                navigationState.back()
+                navigationRouter.back()
             }, label: {
                 Text("back")
             })
@@ -427,16 +427,16 @@ struct NavigationView3: View {
     @Previewable @State
     var alertManagerOnNavigation = AlertManager(isPresented: false, alertType: nil)
     @Previewable @State
-    var sheetState = SheetPresentationManager(presentingSheet: nil)
+    var sheetManager = SheetPresentationManager(presentingSheet: nil)
     @Previewable @State
-    var navigationState = NavigationRouter(views: [])
+    var navigationRouter = NavigationRouter(views: [])
     @Previewable @State
     var alertManagerOnSheet = AlertManager(isPresented: false, alertType: nil)
 
     RootView()
         .environment(\.toastManager, toastManager)
         .environment(\.alertManagerOnNavigation, alertManagerOnNavigation)
-        .environment(\.sheetState, sheetState)
-        .environment(\.navigationState, navigationState)
+        .environment(\.sheetManager, sheetManager)
+        .environment(\.navigationRouter, navigationRouter)
         .environment(\.alertManagerOnSheet, alertManagerOnSheet)
 }

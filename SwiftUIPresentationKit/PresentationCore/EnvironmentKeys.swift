@@ -2,11 +2,11 @@ import SwiftUI
 
 // MARK: Set Up Environment
 
-private struct SheetStateKey: EnvironmentKey {
+private struct SheetManagerKey: EnvironmentKey {
     static let defaultValue = SheetPresentationManager(presentingSheet: nil)
 }
 
-private struct NavigationStateKey: EnvironmentKey {
+private struct NavigationRouterKey: EnvironmentKey {
     static let defaultValue = NavigationRouter(views: [])
 }
 
@@ -19,14 +19,14 @@ private struct ToastManagerKey: EnvironmentKey {
 }
 
 extension EnvironmentValues {
-    var sheetState: SheetPresentationManager {
-        get { self[SheetStateKey.self] }
-        set { self[SheetStateKey.self] = newValue }
+    var sheetManager: SheetPresentationManager {
+        get { self[SheetManagerKey.self] }
+        set { self[SheetManagerKey.self] = newValue }
     }
 
-    var navigationState: NavigationRouter {
-        get { self[NavigationStateKey.self] }
-        set { self[NavigationStateKey.self] = newValue }
+    var navigationRouter: NavigationRouter {
+        get { self[NavigationRouterKey.self] }
+        set { self[NavigationRouterKey.self] = newValue }
     }
 
     var alertManagerOnSheet: AlertManager {
