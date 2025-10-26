@@ -2,76 +2,43 @@ import SwiftUI
 
 struct DemoView: View {
     @Environment(\.sheetState)
-    private var _sheetState: SheetPresentationManager
+    private var sheetState: SheetPresentationManager
     @Environment(\.navigationState)
-    private var _navigationState: NavigationRouter
-    @Environment(\.alertManagerOnSheet)
-    private var alertManagerOnSheet: AlertManager
-    @Environment(\.alertManagerOnNavigation)
-    private var alertManagerOnNavigation: AlertManager
-    @Environment(\.toastManager)
-    private var toastManager: ToastPresentationManager
+    private var navigationState: NavigationRouter
 
     var body: some View {
-        @Bindable var sheetState = _sheetState
-        @Bindable var navigationState = _navigationState
-
-        NavigationStack(path: $navigationState.views) {
-            VStack {
-                Text("TopView")
-                Button(action: {
-                    sheetState.openSheet(.sheet1(id: UUID().uuidString, message: "onTop"))
-                }, label: {
-                    Text("open Sheet1")
-                })
-                Button(action: {
-                    sheetState.openSheet(.sheet2(id: UUID().uuidString, message: "onTop"))
-                }, label: {
-                    Text("open Sheet2")
-                })
-                Button(action: {
-                    sheetState.openSheet(.sheet3(id: UUID().uuidString, message: "onTop"))
-                }, label: {
-                    Text("open Sheet3")
-                })
-                Button(action: {
-                    navigationState.navigate(to: .view1(message: "from Top"))
-                }, label: {
-                    Text("navigate1")
-                })
-                Button(action: {
-                    navigationState.navigate(to: .view2(message: "from Top"))
-                }, label: {
-                    Text("navigate2")
-                })
-                Button(action: {
-                    navigationState.navigate(to: .view3(message: "from Top"))
-                }, label: {
-                    Text("navigate3")
-                })
-            }
-            .navigationDestination(for: NavigationType.self) { navigationType in
-                Group {
-                    switch navigationType {
-                    case let .view1(message): NavigationView1(message: message)
-                    case let .view2(message): NavigationView2(message: message)
-                    case let .view3(message): NavigationView3(message: message)
-                    }
-                }
-                .alertOnNavigation()
-                .toast(manager: toastManager)
-            }
-        }
-        .sheet(item: $sheetState.presentingSheet) { sheetType in
-            Group {
-                switch sheetType {
-                case let .sheet1(_, message): Sheet1(message: message)
-                case let .sheet2(_, message): Sheet2(message: message)
-                case let .sheet3(_, message): Sheet3(message: message)
-                }
-            }
-            .alertOnSheet()
-            .toast(manager: toastManager)
+        VStack {
+            Text("TopView")
+            Button(action: {
+                sheetState.openSheet(.sheet1(id: UUID().uuidString, message: "onTop"))
+            }, label: {
+                Text("open Sheet1")
+            })
+            Button(action: {
+                sheetState.openSheet(.sheet2(id: UUID().uuidString, message: "onTop"))
+            }, label: {
+                Text("open Sheet2")
+            })
+            Button(action: {
+                sheetState.openSheet(.sheet3(id: UUID().uuidString, message: "onTop"))
+            }, label: {
+                Text("open Sheet3")
+            })
+            Button(action: {
+                navigationState.navigate(to: .view1(message: "from Top"))
+            }, label: {
+                Text("navigate1")
+            })
+            Button(action: {
+                navigationState.navigate(to: .view2(message: "from Top"))
+            }, label: {
+                Text("navigate2")
+            })
+            Button(action: {
+                navigationState.navigate(to: .view3(message: "from Top"))
+            }, label: {
+                Text("navigate3")
+            })
         }
     }
 }
