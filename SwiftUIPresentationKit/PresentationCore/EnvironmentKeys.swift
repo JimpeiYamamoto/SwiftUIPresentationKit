@@ -10,7 +10,11 @@ private struct NavigationRouterKey: EnvironmentKey {
     static let defaultValue = NavigationRouter(views: [])
 }
 
-private struct AlertManagerKey: EnvironmentKey {
+private struct AlertManagerOnNavigationKey: EnvironmentKey {
+    static let defaultValue = AlertManager(isPresented: false, alertType: nil)
+}
+
+private struct AlertManagerOnSheetKey: EnvironmentKey {
     static let defaultValue = AlertManager(isPresented: false, alertType: nil)
 }
 
@@ -30,13 +34,13 @@ extension EnvironmentValues {
     }
 
     var alertManagerOnSheet: AlertManager {
-        get { self[AlertManagerKey.self] }
-        set { self[AlertManagerKey.self] = newValue }
+        get { self[AlertManagerOnSheetKey.self] }
+        set { self[AlertManagerOnSheetKey.self] = newValue }
     }
 
     var alertManagerOnNavigation: AlertManager {
-        get { self[AlertManagerKey.self] }
-        set { self[AlertManagerKey.self] = newValue }
+        get { self[AlertManagerOnNavigationKey.self] }
+        set { self[AlertManagerOnNavigationKey.self] = newValue }
     }
 
     var toastManager: ToastPresentationManager {
