@@ -14,7 +14,7 @@ struct SwiftUIPresentationKitApp: App {
             @Bindable var navigationState = navigationState
 
             NavigationStack(path: $navigationState.views) {
-                DemoView()
+                RootView()
                     .navigationDestination(for: NavigationType.self) { navigationType in
                         Group {
                             switch navigationType {

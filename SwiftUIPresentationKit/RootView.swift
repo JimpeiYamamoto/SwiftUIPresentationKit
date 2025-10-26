@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct DemoView: View {
+struct RootView: View {
     @Environment(\.sheetState)
     private var sheetState: SheetPresentationManager
     @Environment(\.navigationState)
@@ -42,6 +42,8 @@ struct DemoView: View {
         }
     }
 }
+
+// MARK: Example Views
 
 struct Sheet1: View {
     @Environment(\.sheetState)
@@ -431,7 +433,7 @@ struct NavigationView3: View {
     @Previewable @State
     var alertManagerOnSheet = AlertManager(isPresented: false, alertType: nil)
 
-    DemoView()
+    RootView()
         .environment(\.toastManager, toastManager)
         .environment(\.alertManagerOnNavigation, alertManagerOnNavigation)
         .environment(\.sheetState, sheetState)
