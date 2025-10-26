@@ -1,40 +1,39 @@
 import SwiftUI
 
 struct TopView: View {
-    @State
-    private var sheetState = SheetState(presentingSheet: nil)
-    @State
-    private var navigationState = NavigationState(views: [])
-    @State
-    private var alertManagerOnSheet = AlertManager(isPresented: false, alertType: nil)
+    @Environment(\.sheetState)
+    private var _sheetState: SheetState
+    @Environment(\.navigationState)
+    private var _navigationState: NavigationState
+    @Environment(\.alertManagerOnSheet)
+    private var alertManagerOnSheet: AlertManager
     @Environment(\.alertManagerOnNavigation)
-    private var alertManagerOnNavigation
+    private var alertManagerOnNavigation: AlertManager
     @Environment(\.toastManager)
-    private var toastManager
+    private var toastManager: ToastManager
 
     var body: some View {
+        @Bindable var sheetState = _sheetState
+        @Bindable var navigationState = _navigationState
+
         NavigationStack(path: $navigationState.views) {
             VStack {
                 Text("TopView")
-
                 Button(action: {
                     sheetState.openSheet(.sheet1(id: UUID().uuidString, message: "onTop"))
                 }, label: {
                     Text("open Sheet1")
                 })
-
                 Button(action: {
                     sheetState.openSheet(.sheet2(id: UUID().uuidString, message: "onTop"))
                 }, label: {
                     Text("open Sheet2")
                 })
-
                 Button(action: {
                     sheetState.openSheet(.sheet3(id: UUID().uuidString, message: "onTop"))
                 }, label: {
                     Text("open Sheet3")
                 })
-
                 Button(action: {
                     navigationState.navigate(to: .view1(message: "from Top"))
                 }, label: {
@@ -74,11 +73,6 @@ struct TopView: View {
             .alertOnSheet()
             .toast(manager: toastManager)
         }
-        .environment(\.sheetState, sheetState)
-        .environment(\.navigationState, navigationState)
-        .environment(\.alertManagerOnSheet, alertManagerOnSheet)
-//        .environment(\.alertManagerOnNavigation, alertManagerOnNavigation)
-//        .environment(\.toastManager, toastManager)
     }
 }
 
@@ -118,22 +112,6 @@ struct Sheet1: View {
             }, label: {
                 Text("open Sheet3")
             })
-
-            Button(action: {
-                navigationState.navigate(to: .view1(message: "from Sheet1"))
-            }, label: {
-                Text("navigate1")
-            })
-            Button(action: {
-                navigationState.navigate(to: .view2(message: "from Sheet1"))
-            }, label: {
-                Text("navigate2")
-            })
-            Button(action: {
-                navigationState.navigate(to: .view3(message: "from Sheet1"))
-            }, label: {
-                Text("navigate3")
-            })
             Button(action: {
                 alertManager.show(alertType: .alert1(actions: []))
             }, label: {
@@ -172,39 +150,20 @@ struct Sheet2: View {
         VStack {
             Text("Sheet1")
             Text("message: \(message)")
-
             Button(action: {
                 sheetState.openSheet(.sheet1(id: UUID().uuidString, message: "onSheet2"))
             }, label: {
                 Text("open Sheet1")
             })
-
             Button(action: {
                 sheetState.openSheet(.sheet2(id: UUID().uuidString, message: "onSheet2"))
             }, label: {
                 Text("open Sheet2")
             })
-
             Button(action: {
                 sheetState.openSheet(.sheet3(id: UUID().uuidString, message: "onSheet2"))
             }, label: {
                 Text("open Sheet3")
-            })
-
-            Button(action: {
-                navigationState.navigate(to: .view1(message: "from Sheet2"))
-            }, label: {
-                Text("navigate1")
-            })
-            Button(action: {
-                navigationState.navigate(to: .view2(message: "from Sheet2"))
-            }, label: {
-                Text("navigate2")
-            })
-            Button(action: {
-                navigationState.navigate(to: .view3(message: "from Sheet2"))
-            }, label: {
-                Text("navigate3")
             })
             Button(action: {
                 alertManager.show(alertType: .alert1(actions: []))
@@ -244,39 +203,20 @@ struct Sheet3: View {
         VStack {
             Text("Sheet1")
             Text("message: \(message)")
-
             Button(action: {
                 sheetState.openSheet(.sheet1(id: UUID().uuidString, message: "onSheet3"))
             }, label: {
                 Text("open Sheet1")
             })
-
             Button(action: {
                 sheetState.openSheet(.sheet2(id: UUID().uuidString, message: "onSheet3"))
             }, label: {
                 Text("open Sheet2")
             })
-
             Button(action: {
                 sheetState.openSheet(.sheet3(id: UUID().uuidString, message: "onSheet3"))
             }, label: {
                 Text("open Sheet3")
-            })
-
-            Button(action: {
-                navigationState.navigate(to: .view1(message: "from Sheet3"))
-            }, label: {
-                Text("navigate1")
-            })
-            Button(action: {
-                navigationState.navigate(to: .view2(message: "from Sheet3"))
-            }, label: {
-                Text("navigate2")
-            })
-            Button(action: {
-                navigationState.navigate(to: .view3(message: "from Sheet3"))
-            }, label: {
-                Text("navigate3")
             })
             Button(action: {
                 alertManager.show(alertType: .alert1(actions: []))
@@ -362,17 +302,6 @@ struct NavigationView1: View {
             }, label: {
                 Text("show toast")
             })
-            Button(action: {
-                alertManager.show(alertType: .alert1(actions: []))
-            }, label: {
-                Text("show Alert")
-            })
-            Button(action: {
-                toastManager.show("from sheet2")
-            }, label: {
-                Text("showToast")
-            })
-
             Button(action: {
                 navigationState.back()
             }, label: {
@@ -477,31 +406,26 @@ struct NavigationView3: View {
             }, label: {
                 Text("open Sheet1")
             })
-
             Button(action: {
                 sheetState.openSheet(.sheet2(id: UUID().uuidString, message: "onSheet3"))
             }, label: {
                 Text("open Sheet2")
             })
-
             Button(action: {
                 sheetState.openSheet(.sheet3(id: UUID().uuidString, message: "onSheet3"))
             }, label: {
                 Text("open Sheet3")
             })
-
             Button(action: {
                 navigationState.navigate(to: .view1(message: "from navigation3"))
             }, label: {
                 Text("navigate1")
             })
-
             Button(action: {
                 navigationState.navigate(to: .view2(message: "from navigation3"))
             }, label: {
                 Text("navigate2")
             })
-
             Button(action: {
                 navigationState.navigate(to: .view3(message: "from navigation3"))
             }, label: {
@@ -533,8 +457,17 @@ struct NavigationView3: View {
     var toastManager = ToastManager()
     @Previewable @State
     var alertManagerOnNavigation = AlertManager(isPresented: false, alertType: nil)
+    @Previewable @State
+    var sheetState = SheetState(presentingSheet: nil)
+    @Previewable @State
+    var navigationState = NavigationState(views: [])
+    @Previewable @State
+    var alertManagerOnSheet = AlertManager(isPresented: false, alertType: nil)
 
     TopView()
         .environment(\.toastManager, toastManager)
         .environment(\.alertManagerOnNavigation, alertManagerOnNavigation)
+        .environment(\.sheetState, sheetState)
+        .environment(\.navigationState, navigationState)
+        .environment(\.alertManagerOnSheet, alertManagerOnSheet)
 }
