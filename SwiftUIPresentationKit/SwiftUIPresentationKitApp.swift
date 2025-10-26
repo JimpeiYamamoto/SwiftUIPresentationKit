@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct SwiftUINavigationStackApp: App {
+struct SwiftUIPresentationKitApp: App {
     @State private var toastManager = ToastManager()
     @State private var alertManagerOnNavigation = AlertManager(isPresented: false, alertType: nil)
     @State private var sheetState = SheetState(presentingSheet: nil)

@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		F25DB7E42EADE7CE0054077F /* SwiftUINavigationStack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUINavigationStack.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F25DB7E42EADE7CE0054077F /* SwiftUIPresentationKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIPresentationKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		F25DB7E62EADE7CE0054077F /* SwiftUINavigationStack */ = {
+		F25DB7E62EADE7CE0054077F /* SwiftUIPresentationKit */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SwiftUINavigationStack;
+			path = SwiftUIPresentationKit;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -32,7 +32,7 @@
 		F25DB7DB2EADE7CE0054077F = {
 			isa = PBXGroup;
 			children = (
-				F25DB7E62EADE7CE0054077F /* SwiftUINavigationStack */,
+				F25DB7E62EADE7CE0054077F /* SwiftUIPresentationKit */,
 				F25DB7E52EADE7CE0054077F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -40,7 +40,7 @@
 		F25DB7E52EADE7CE0054077F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F25DB7E42EADE7CE0054077F /* SwiftUINavigationStack.app */,
+				F25DB7E42EADE7CE0054077F /* SwiftUIPresentationKit.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,9 +48,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F25DB7E32EADE7CE0054077F /* SwiftUINavigationStack */ = {
+		F25DB7E32EADE7CE0054077F /* SwiftUIPresentationKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F25DB7EF2EADE7CF0054077F /* Build configuration list for PBXNativeTarget "SwiftUINavigationStack" */;
+			buildConfigurationList = F25DB7EF2EADE7CF0054077F /* Build configuration list for PBXNativeTarget "SwiftUIPresentationKit" */;
 			buildPhases = (
 				F25DB7E02EADE7CE0054077F /* Sources */,
 				F25DB7E12EADE7CE0054077F /* Frameworks */,
@@ -61,13 +61,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				F25DB7E62EADE7CE0054077F /* SwiftUINavigationStack */,
+				F25DB7E62EADE7CE0054077F /* SwiftUIPresentationKit */,
 			);
-			name = SwiftUINavigationStack;
+			name = SwiftUIPresentationKit;
 			packageProductDependencies = (
 			);
-			productName = SwiftUINavigationStack;
-			productReference = F25DB7E42EADE7CE0054077F /* SwiftUINavigationStack.app */;
+			productName = SwiftUIPresentationKit;
+			productReference = F25DB7E42EADE7CE0054077F /* SwiftUIPresentationKit.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -85,7 +85,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F25DB7DF2EADE7CE0054077F /* Build configuration list for PBXProject "SwiftUINavigationStack" */;
+			buildConfigurationList = F25DB7DF2EADE7CE0054077F /* Build configuration list for PBXProject "SwiftUIPresentationKit" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -99,7 +99,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F25DB7E32EADE7CE0054077F /* SwiftUINavigationStack */,
+				F25DB7E32EADE7CE0054077F /* SwiftUIPresentationKit */,
 			);
 		};
 /* End PBXProject section */
@@ -266,7 +266,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yjim.SwiftUINavigationStack;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yjim.SwiftUIPresentationKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -298,7 +298,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yjim.SwiftUINavigationStack;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yjim.SwiftUIPresentationKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -313,7 +313,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F25DB7DF2EADE7CE0054077F /* Build configuration list for PBXProject "SwiftUINavigationStack" */ = {
+		F25DB7DF2EADE7CE0054077F /* Build configuration list for PBXProject "SwiftUIPresentationKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F25DB7ED2EADE7CF0054077F /* Debug */,
@@ -322,7 +322,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F25DB7EF2EADE7CF0054077F /* Build configuration list for PBXNativeTarget "SwiftUINavigationStack" */ = {
+		F25DB7EF2EADE7CF0054077F /* Build configuration list for PBXNativeTarget "SwiftUIPresentationKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F25DB7F02EADE7CF0054077F /* Debug */,
