@@ -334,7 +334,7 @@ struct NavigationView2: View {
                 Text("navigate3")
             })
             Button(action: {
-                alertManager.show(alertType: .alert1(actions: []))
+                alertManager.show(alertType: .alert2(actions: []))
             }, label: {
                 Text("show Alert")
             })
@@ -401,7 +401,7 @@ struct NavigationView3: View {
                 Text("navigate3")
             })
             Button(action: {
-                alertManager.show(alertType: .alert1(actions: []))
+                alertManager.show(alertType: .alert2(actions: []))
             }, label: {
                 Text("show Alert")
             })

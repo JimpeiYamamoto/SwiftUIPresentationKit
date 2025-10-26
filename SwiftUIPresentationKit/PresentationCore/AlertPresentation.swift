@@ -117,7 +117,7 @@ enum AlertType: Hashable {
 
     var message: String? {
         switch self {
-        case .alert1: "title1"
+        case .alert1: "message1"
         case .alert2: nil
         }
     }
