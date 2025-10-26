@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct TopView: View {
+struct DemoView: View {
     @Environment(\.sheetState)
     private var _sheetState: SheetState
     @Environment(\.navigationState)
@@ -171,7 +171,7 @@ struct Sheet2: View {
                 Text("show Alert")
             })
             Button(action: {
-                toastManager.show("from sheet2")
+                toastManager.show("from Sheet2")
             }, label: {
                 Text("showToast")
             })
@@ -224,7 +224,7 @@ struct Sheet3: View {
                 Text("show Alert")
             })
             Button(action: {
-                toastManager.show("from sheet2")
+                toastManager.show("from Sheet3")
             }, label: {
                 Text("showToast")
             })
@@ -256,19 +256,19 @@ struct NavigationView1: View {
             Text("message: \(message)")
 
             Button(action: {
-                sheetState.openSheet(.sheet1(id: UUID().uuidString, message: "onSheet3"))
+                sheetState.openSheet(.sheet1(id: UUID().uuidString, message: "onNavigation1"))
             }, label: {
                 Text("open Sheet1")
             })
 
             Button(action: {
-                sheetState.openSheet(.sheet2(id: UUID().uuidString, message: "onSheet3"))
+                sheetState.openSheet(.sheet2(id: UUID().uuidString, message: "onNavigation1"))
             }, label: {
                 Text("open Sheet2")
             })
 
             Button(action: {
-                sheetState.openSheet(.sheet3(id: UUID().uuidString, message: "onSheet3"))
+                sheetState.openSheet(.sheet3(id: UUID().uuidString, message: "onNavigation1"))
             }, label: {
                 Text("open Sheet3")
             })
@@ -330,19 +330,19 @@ struct NavigationView2: View {
             Text("message: \(message)")
 
             Button(action: {
-                sheetState.openSheet(.sheet1(id: UUID().uuidString, message: "onSheet3"))
+                sheetState.openSheet(.sheet1(id: UUID().uuidString, message: "onNavigation2"))
             }, label: {
                 Text("open Sheet1")
             })
 
             Button(action: {
-                sheetState.openSheet(.sheet2(id: UUID().uuidString, message: "onSheet3"))
+                sheetState.openSheet(.sheet2(id: UUID().uuidString, message: "onNavigation2"))
             }, label: {
                 Text("open Sheet2")
             })
 
             Button(action: {
-                sheetState.openSheet(.sheet3(id: UUID().uuidString, message: "onSheet3"))
+                sheetState.openSheet(.sheet3(id: UUID().uuidString, message: "onNavigation2"))
             }, label: {
                 Text("open Sheet3")
             })
@@ -402,17 +402,17 @@ struct NavigationView3: View {
             Text("message: \(message)")
 
             Button(action: {
-                sheetState.openSheet(.sheet1(id: UUID().uuidString, message: "onSheet3"))
+                sheetState.openSheet(.sheet1(id: UUID().uuidString, message: "onNavigation3"))
             }, label: {
                 Text("open Sheet1")
             })
             Button(action: {
-                sheetState.openSheet(.sheet2(id: UUID().uuidString, message: "onSheet3"))
+                sheetState.openSheet(.sheet2(id: UUID().uuidString, message: "onNavigation3"))
             }, label: {
                 Text("open Sheet2")
             })
             Button(action: {
-                sheetState.openSheet(.sheet3(id: UUID().uuidString, message: "onSheet3"))
+                sheetState.openSheet(.sheet3(id: UUID().uuidString, message: "onNavigation3"))
             }, label: {
                 Text("open Sheet3")
             })
@@ -464,7 +464,7 @@ struct NavigationView3: View {
     @Previewable @State
     var alertManagerOnSheet = AlertManager(isPresented: false, alertType: nil)
 
-    TopView()
+    DemoView()
         .environment(\.toastManager, toastManager)
         .environment(\.alertManagerOnNavigation, alertManagerOnNavigation)
         .environment(\.sheetState, sheetState)

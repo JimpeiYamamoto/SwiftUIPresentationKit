@@ -10,7 +10,7 @@ struct SwiftUIPresentationKitApp: App {
 
     var body: some Scene {
         WindowGroup {
-            TopView()
+            DemoView()
                 .environment(\.toastManager, toastManager)
                 .environment(\.alertManagerOnNavigation, alertManagerOnNavigation)
                 .environment(\.sheetState, sheetState)
